@@ -1,5 +1,6 @@
 package com.movieTicketBooking.ticketBooking.Movie;
 
+import com.movieTicketBooking.ticketBooking.Booked.BookedRepository;
 import com.movieTicketBooking.ticketBooking.Ticket.Ticket;
 import com.movieTicketBooking.ticketBooking.Ticket.TicketRepository;
 import org.springframework.boot.CommandLineRunner;
@@ -12,7 +13,7 @@ import java.util.List;
 @Configuration
 public class MovieConfig {
     @Bean
-    CommandLineRunner commandLineRunner(MovieRepository movieRepository, TicketRepository ticketRepository){
+    CommandLineRunner commandLineRunner(MovieRepository movieRepository, TicketRepository ticketRepository, BookedRepository bookedRepository){
         return args -> {
             Movie movie1= new Movie(
                     1,
@@ -442,6 +443,7 @@ public class MovieConfig {
                     ticket6p, ticket6c,ticket7p,ticket7c,ticket8p,ticket8c,ticket9p,ticket9c,ticket10p,ticket10c,ticket11p,ticket11c,
                     ticket12p,ticket12c,ticket13p,ticket13c,ticket14p,ticket14c,ticket15p,ticket15c, ticket16p,ticket16c,ticket17p,
                     ticket17c,ticket18p,ticket18c,ticket19p,ticket19c,ticket20p,ticket20c));
+            bookedRepository.deleteAll();
         };
     }
 }

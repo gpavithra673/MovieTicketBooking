@@ -49,7 +49,7 @@ public class TicketService {
         Integer ticket_to_book_is_available= ticket.getIs_available();
 
         if (ticket_to_book_is_available==1){
-            throw new IllegalStateException("Ticket is booked");
+            throw new RuntimeException("Ticket is booked");
         }
         ticket.setIs_available(1);
         ticketRepository.save(ticket);

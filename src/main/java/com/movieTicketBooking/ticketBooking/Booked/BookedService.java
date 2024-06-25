@@ -19,7 +19,6 @@ public class BookedService {
         this.movieRepository = movieRepository;
     }
 
-    @Transactional
     public void addBookedTicket(Integer movie_Id,Integer ticket_id,String seat_name, String seat_type){
         boolean checkTicket= bookedRepository.existsById(ticket_id);
         if(checkTicket){
@@ -30,7 +29,7 @@ public class BookedService {
             throw new IllegalStateException("No movie Found by given ID!!");
         }
         Movie movieGotByID= movie.get();
-        Booked bookTicket = new Booked(movie_Id,ticket_id,movieGotByID.getMovie_name(),seat_name,seat_type,"7:00 pm");
+        Booked bookTicket= new Booked( movie_Id, ticket_id,movieGotByID.getMovie_name(),seat_name,seat_type,"7:00 pm");
         bookedRepository.save(bookTicket);
     }
 

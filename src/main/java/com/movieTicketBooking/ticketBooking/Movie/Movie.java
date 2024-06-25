@@ -1,8 +1,11 @@
 package com.movieTicketBooking.ticketBooking.Movie;
 
+import com.movieTicketBooking.ticketBooking.Booked.Booked;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
+
 @Entity
 @Table
 public class Movie {
@@ -23,6 +26,7 @@ public class Movie {
     private String movie_name;
     private String movie_genre;
     private LocalDateTime movie_time;
+
 
     public Movie(Integer id, String movie_name, String movie_genre, LocalDateTime movie_time) {
         this.id = id;

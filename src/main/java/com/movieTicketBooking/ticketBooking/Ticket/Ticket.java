@@ -1,6 +1,9 @@
 package com.movieTicketBooking.ticketBooking.Ticket;
 
+import com.movieTicketBooking.ticketBooking.Booked.Booked;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table

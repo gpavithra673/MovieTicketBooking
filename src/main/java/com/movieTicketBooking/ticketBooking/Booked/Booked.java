@@ -1,5 +1,8 @@
 package com.movieTicketBooking.ticketBooking.Booked;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.movieTicketBooking.ticketBooking.Movie.Movie;
+import com.movieTicketBooking.ticketBooking.Ticket.Ticket;
 import jakarta.persistence.*;
 
 @Entity
@@ -8,13 +11,14 @@ public class Booked {
     @Id
     @SequenceGenerator(
             name="booked_sequence",
-            sequenceName = "ticket_sequence",
+            sequenceName = "booked_sequence",
             allocationSize = 1
     )
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
             generator = "booked_sequence"
     )
+
     private Integer movie_id;
     private Integer ticket_id;
     private String movie_name;
@@ -90,4 +94,8 @@ public class Booked {
                 ", movie_time='" + movie_time + '\'' +
                 '}';
     }
+
+    public Booked() {
+    }
+
 }
